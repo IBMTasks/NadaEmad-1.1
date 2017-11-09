@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Actions Page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+	<script src="javascripts/ContactsActions.js"> </script>
+	
+</head>
+<body ng-app="">
+	<header id="header">
+		
+	</header>
+	<script type="text/javascript">
+		var header = "<h4 id=\"email\">"+new URLSearchParams(window.location.search).get("_id")+"</h4>"
+		header+= "<button type=\"button\" onclick=\"window.location.href='/';\">Log out</button>"
+		document.getElementById("header").innerHTML = header;
+	</script>
+<div id="parent">
+	<form id="deleteForm" name="delete" method="GET" style="display:none">
+			<table id="table">
+				<tr>
+					<th colspan="2">
+						<h2>Enter contact you want to delete</h2>
+					</th>
+				</tr>
+				<tr>
+					<td>
+						<h3>Name:</h3>
+					</td>
+					<td>
+						<input id="name" type ="text" name="name" required ng-model="name"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Phone:</h3>
+					</td>
+					<td>
+						<input id="phone" type ="text" name="phone" required ng-model="phone"/>
+					</td>
+				</tr>
+				<tfoot>
+					<td colspan="2">
+						<button id="delete_contact_button" type="submit">Delete</button>
+					</td>
+				</tfoot>
+				<tfoot>
+					<td colspan="2">
+						<a id="link">View all contacts</a>
+						<script type="text/javascript">
+							var url = "/Contacts.html?_id=" + new URLSearchParams(window.location.search).get("_id");
+							var element = document.getElementById("link");
+							element.setAttribute("href",url);
+						</script>
+					</td> 
+				</tfoot>
+					
+				
+
+			</table> 
+	</form>
+
+	<form id="updateForm" name="update" method="GET" style="display:none">
+			<table id="updateTable">
+				<tr>
+					<th colspan="2">
+						<h2>Enter contact you want to update</h2>
+					</th>
+				</tr>
+				<tr>
+					<td>
+						<h3>Old Name:</h3>
+					</td>
+					<td>
+						<input id="oldName" type ="text" name="oldName" required ng-model="oldName"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Old Phone:</h3>
+					</td>
+					<td>
+						<input id="oldPhone" type ="text" name="oldPhone" required ng-model="oldPhone"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>New Name:</h3>
+					</td>
+					<td>
+						<input id="newName" type ="text" name="newName" required ng-model="newName"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>New Phone:</h3>
+					</td>
+					<td>
+						<input id="newPhone" type ="text" name="newPhone" required ng-model="newPhone"/>
+					</td>
+				</tr>
+				<tfoot>
+					<td colspan="2">
+						<button id="update_contact_button" type="submit">Update</button>
+					</td>
+				</tfoot>
+				<tfoot>
+					<td colspan="2">
+						<a id="link1">View all contacts</a>
+						<script type="text/javascript">
+							var url = "/Contacts.html?_id=" + new URLSearchParams(window.location.search).get("_id");
+							var element = document.getElementById("link1");
+							element.setAttribute("href",url);
+						</script>
+					</td> 
+				</tfoot>
+					
+				
+
+			</table> 
+	</form>
+
+	<form id="insertForm" name="insert" method="GET" style="display:none">
+				<table id="table">
+					<tr>
+						<th colspan="2">
+							<h2>Enter contact you want to add</h2>
+						</th>
+					</tr>
+					<tr>
+						<td>
+							<h3>Name:</h3>
+						</td>
+						<td>
+							<input id="name" type ="text" name="name" required ng-model="name"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<h3>Phone:</h3>
+						</td>
+						<td>
+							<input id="phone" type ="text" name="phone" required ng-model="phone"/>
+						</td>
+					</tr>
+					<tfoot>
+						<td colspan="2">
+							<button id="insert_contact_button" type="submit">Insert</button>
+						</td>
+					</tfoot>
+					<tfoot>
+						<td colspan="2">
+							<a id="link2">View all contacts</a>
+							<script type="text/javascript">
+								var url = "/Contacts.html?_id=" + new URLSearchParams(window.location.search).get("_id");
+								var element = document.getElementById("link2");
+								element.setAttribute("href",url);
+							</script>
+						</td> 
+					</tfoot>
+						
+					
+
+				</table> 
+		</form>
+
+
+	<script type="text/javascript">
+		var action = new URLSearchParams(window.location.search).get("action");
+		if (action == "delete") 
+		{
+			document.getElementById("deleteForm").style.display="block";
+		}
+		else if(action == "update") 
+		{
+			document.getElementById("updateForm").style.display="block";
+		}
+		else if(action == "insert") 
+		{
+			document.getElementById("insertForm").style.display="block";
+		}
+		
+	</script>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,169 @@
+body 
+{
+    /* background-image: url("../images/background.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+    font-family: 'Kadwa';
+    background-attachment: fixed;
+}
+body, html {
+  	height: 100%;
+  	width: 100%;
+}
+
+header
+{
+  	text-align: right;
+    border-style: solid;
+    border-color: #800029;
+    border-width: 2px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.3);
+    font-size: 15px;
+}
+h4
+{
+  	margin: 0;
+    display: inline-block;
+    padding: 12px 12px;
+  	border-radius: 15px;
+  	border-color: #800029;
+  	border-width: 2px;
+  	border-style: solid;
+  	background-color:  transparent;
+  	color: black;
+  	font-size: 15px;
+  	font-style: oblique;
+  	font-weight: bold;
+    
+}
+#parent {
+  	display: flex;
+  	justify-content: center; /* center horizontally */
+  	align-items: center; /* center vertically */
+  	height: 100%;
+
+
+}
+#login,#signup
+{
+  	width: 300px;
+  	height: 300px;
+  	position: absolute;
+  	color: #FFFFFF;
+
+}
+
+
+#table
+{
+	border-style: solid;
+	border-spacing: 30px 30px;
+	border-color: #800029;
+	border-width: 2px;
+	border-radius: 15px;
+	background: rgba(255,255,255,0.3);
+	font-size: 15px;
+
+
+	
+}
+
+#table > th
+{
+	text-align: center;
+	font-size: 25px;
+	
+}
+
+#ContactsTable
+{
+  	border-style: solid;
+  	border-spacing: 30px 30px;
+  	border-color: #800029;
+  	border-width: 2px;
+  	border-radius: 15px;
+  	background: rgba(255,255,255,0.3);
+  	font-size: 15px;
+  	width: 100%;
+  	height: 100%;
+
+
+  
+}
+#ContactsTable > th
+{
+  	text-align: center;
+  	font-size: 40px;
+  
+}
+
+#updateTable
+{
+  	padding-top: 0px;
+  	border-style: solid;
+  	border-spacing: 10px 10px;
+  	border-color: #800029;
+  	border-width: 2px;
+  	border-radius: 15px;
+  	background: rgba(255,255,255,0.3);
+  	font-size: 15px;
+  	width: 100%;
+  	height: 100%;
+  	padding: 48px; 
+}
+#updateTable > tr
+{
+  	padding-top: 0px;
+  	padding-bottom: 0px;
+}
+
+td span 
+{
+  	float:left;
+  	margin:0.25em;
+}
+
+tfoot
+{
+	text-align: center;
+	
+}
+
+input
+{
+  	background-color: inherit;
+  	border-radius: 15px;
+  	border-color: #800029;
+	border-width: 2px;
+  	border-style: solid;
+  	font-size:14pt;
+}
+
+button
+{
+ 	padding: 12px 12px;
+ 	border-radius: 15px;
+ 	border-color: #800029;
+	border-width: 2px;
+  	border-style: solid;
+  	background-color:  transparent;
+  	color: black;
+ 	font-size: 15px;
+ 	font-style: oblique;
+ 	font-weight: bold;
+}
+button:disabled,
+button[disabled]{
+  	border: 2px solid #800029;
+  	background-color: #cccccc;
+  	color: #666666;
+}
+
+a
+{
+	color: black;
+	font-weight: bold;
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Login Page</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+	<script src="javascripts/LoginAction.js"> </script>
+	
+</head>
+<body ng-app="">
+
+
+<div id="parent">
+	<form name="login" method="GET">
+		
+			<table id="table">
+				<tr>
+					<th colspan="2">
+						<h2>Log in</h2>
+					</th>
+				</tr>
+				<tr>
+					<td id="label">
+						<h3>Email:</h3>
+					</td>
+					<td>
+						<input id="email" type ="email" name="email" required ng-model="email"/>
+						<br/>
+						 <span ng-show="login.email.$invalid && login.email.$dirty"> Please enter a valid email address </span>
+					</td>
+				</tr>
+				<tr>
+					<td id="label">
+						<h3>Password:</h3>
+					</td>
+					<td>
+						<input id="password" type ="password" name="password" required ng-model="password"/>
+					</td>
+				</tr>
+				<tfoot>
+					<td colspan="2">
+						<button id="login_user_button" type="submit">Login</button>
+					</td>
+				</tfoot>
+				<tfoot>
+					<td colspan="2">
+						<a href="/Signup.html">Don't have an account, Signup here</a>
+					</td> 
+				</tfoot>
+					
+				
+
+			</table>
+	           
+            
+
+      
+        
+	</form>
+</div>
+	
+</body>
+</html>
