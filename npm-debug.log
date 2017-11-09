@@ -10,8 +10,8 @@
 6 silly lifecycle task@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle task@0.0.0~start: task@0.0.0
 8 verbose lifecycle task@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle task@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/nada/Desktop/Bluemix/simpleTask/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-10 verbose lifecycle task@0.0.0~start: CWD: /Users/nada/Desktop/Bluemix/simpleTask
+9 verbose lifecycle task@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/nada/Dropbox/NadaEmad-Task v1.1/node_modules/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+10 verbose lifecycle task@0.0.0~start: CWD: /Users/nada/Dropbox/NadaEmad-Task v1.1
 11 silly lifecycle task@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle task@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle task@0.0.0~start: Failed to exec start script
@@ -26,7 +26,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:920:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
 15 verbose pkgid task@0.0.0
-16 verbose cwd /Users/nada/Desktop/Bluemix/simpleTask
+16 verbose cwd /Users/nada/Dropbox/NadaEmad-Task v1.1
 17 error Darwin 17.0.0
 18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start" "-verbose"
 19 error node v6.11.4
