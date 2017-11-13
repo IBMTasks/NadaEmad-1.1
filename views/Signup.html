@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Signup Page</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<link rel="stylesheet" href="stylesheets/style.css">
-	<script src ="javascripts/validators.js" type="text/javascript"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
-    <script src="javascripts/signupAction.js"> </script>
-
-   
-</head>
-<body ng-app="app" ng-controller="mainCtrl">
-    <div id="parent">
-        <form name="signup" method="GET">
-        	<table id="table">
+<div  class="outlined-container"  id="parent"  ng-controller="signupController">
+        <form class="signup" name="sign" method="GET">
+        	<table>
 				<tr>
 					<th colspan="2">
 						<h2>Sign Up</h2>
@@ -55,7 +42,7 @@
 
 				<tfoot>
 					<td colspan="2">
-						<button id="add_user_button" type="submit">Signup</button>
+						<button id="add_user_button" type="submit" ng-click="signup()">Signup</button>
 					</td>
 				</tfoot>
 					
@@ -65,6 +52,4 @@
 
             
         </form>
-    </div> 
-</body>
-</html>
+</div> 

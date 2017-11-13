@@ -1,0 +1,41 @@
+<div class="outlined-container" ng-controller="loginController">
+	<form class="login" name="login" method="GET">
+			<table>
+				<tr>
+					<th colspan="2">
+						<h2>Log in</h2>
+					</th>
+				</tr>
+				<tr>
+					<td id="label">
+						<h3>Email: </h3>
+					</td>
+					<td>
+						<input id="email" type ="email" name="email" required ng-model="email"/>
+						<br/>
+						 <span ng-show="login.email.$invalid && login.email.$dirty"> Please enter a valid email address </span>
+					</td>
+				</tr>
+				<tr>
+					<td id="label">
+						<h3>Password:</h3>
+					</td>
+					<td>
+						<input id="password" type ="password" name="password" required ng-model="password"/>
+					</td>
+				</tr>
+				<tfoot>
+					<td colspan="2">
+						<button id="login_user_button" type="submit" ng-click="checkLogin()" ng-disabled="login.$invalid">Login</button>
+					</td>
+				</tfoot>
+				
+					
+				
+
+			</table>
+  
+	</form>
+</div>
+		
+		

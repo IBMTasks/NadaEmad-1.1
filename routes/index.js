@@ -8,8 +8,12 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname,'../','views','index.html'));
 });
 
-router.get('/Login.html', function(req, res, next) {
-  res.sendFile(path.join(__dirname,'../','views','Login.html'));
+router.get('/main.html', function(req, res, next) {
+	  res.sendFile(path.join(__dirname,'../','views','main.html'));
+	});
+
+router.get('/Login.view.html', function(req, res, next) {
+  res.sendFile(path.join(__dirname,'../','views','Login.view.html'));
 });
 
 router.get('/Signup.html', function(req, res, next) {
@@ -20,9 +24,19 @@ router.get('/Contacts.html', function(req, res, next) {
   res.sendFile(path.join(__dirname,'../','views','Contacts.html'));
 });
 
-router.get('/ContactsActions.html', function(req, res, next) {
-  res.sendFile(path.join(__dirname,'../','views','ContactsActions.html'));
+router.get('/AddContact.html', function(req, res, next) {
+  res.sendFile(path.join(__dirname,'../','views','AddContact.html'));
 });
+
+router.get('/DeleteContact.html', function(req, res, next) {
+	  res.sendFile(path.join(__dirname,'../','views','DeleteContact.html'));
+});
+
+router.get('/UpdateContact.html', function(req, res, next) {
+	  res.sendFile(path.join(__dirname,'../','views','UpdateContact.html'));
+});
+
+
 
 
 

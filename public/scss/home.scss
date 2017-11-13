@@ -1,0 +1,156 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #011993;
+
+@import 'table';
+
+body, html {
+  	height: 100%;
+  	width: 100%;
+}
+
+.topNav
+{
+	ul
+	{
+		list-style-type: none;
+		margin: 0;
+    		padding: 0;
+	}
+	background-color: #C0C0C0;
+    overflow: hidden;
+    li 
+    	{
+    	 	display: inline-block; 
+    	 	height: 100%;
+    
+   	}
+    
+    a {
+    			
+	    float: left;
+	    display: inline-block;
+	    width: 120px;
+	    color: $primary-color;
+	    text-align: center;
+	    padding: 16px 16px;
+	    text-decoration: none;
+	    font-size: 17px;
+	}
+	a.active 
+	{
+		height: 100%;
+		background-color: #ffffff;
+		
+	}
+		
+
+}
+
+#welcome
+{
+	justify-content: center;
+  	align-items: center;
+  	text-align: center;
+	
+}
+
+#parent {
+  	display: flex;
+  	justify-content: center; /* center horizontally */
+  	align-items: center; /* center vertically */
+  	height: 100%;
+  	width: 100%;
+  	.outlined-container
+	{
+		display: flex;
+		justify-content: center; /* center horizontally */
+  		align-items: center; /* center vertically */
+		position: absolute;
+		border-style: solid;
+		border-color: $primary-color;
+		border-spacing: 120px;
+		border-width: 2px;
+		border-radius: 25px;
+		padding:50px;
+		.login,.signup
+		{
+		  	table
+			{
+				font-size: 15px;
+				th
+				{
+					text-align: center;
+					font-size: 25px;
+				}
+				td
+				{
+					text-align: right;
+					font-size: 25px;
+					padding-right: 10px;
+				}
+			
+			
+				
+			}
+		  	
+		
+		}
+	}
+  	
+
+
+}
+
+tfoot
+{
+	text-align: center;
+	
+}
+
+input
+{
+  	background-color: inherit;
+  	border-radius: 15px;
+  	border-color: $primary-color;
+	border-width: 2px;
+  	border-style: solid;
+  	font-size:14pt;
+}
+
+button
+{
+ 	padding: 12px 12px;
+ 	border-radius: 15px;
+ 	border-color: $primary-color;
+	border-width: 2px;
+  	border-style: solid;
+  	background-color:  transparent;
+  	color: black;
+ 	font-size: 15px;
+ 	font-style: oblique;
+ 	font-weight: bold;
+}
+button:disabled,
+button[disabled]{
+  	border: 2px solid $primary-color;
+  	background-color: #cccccc;
+  	color: #666666;
+}
+
+
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}

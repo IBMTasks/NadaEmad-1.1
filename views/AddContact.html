@@ -1,0 +1,41 @@
+<div ng-controller="ContactActionsController" >
+	<header id="header" class="page-header">
+		<h3 id="email" ng-model="headerEmail"> {{ $parent.loggedEmail }}</h3>
+		<button type="button" onclick="window.location.href='/';">Log out</button>
+	</header>
+   <form id="insertForm" name="insert" method="GET" class="form-group">
+		<table id="table">
+			<tr>
+				<th colspan="2">
+					<h2>Enter contact you want to add</h2>
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<h3>Name:</h3>
+				</td>
+				<td>
+					<input id="name" type ="text" name="name" required ng-model="name"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Phone:</h3>
+				</td>
+				<td>
+					<input id="phone" type ="text" name="phone" required ng-model="phone"/>
+				</td>
+			</tr>
+			<tfoot>
+				<td colspan="2">
+					<button id="insert_contact_button" type="submit" ng-click="addContact()">Insert</button>
+				</td>
+			</tfoot>
+				
+			
+
+		</table> 
+		</form>
+   
+   
+</div>

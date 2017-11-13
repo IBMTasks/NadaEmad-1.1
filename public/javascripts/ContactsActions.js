@@ -1,151 +1,107 @@
-$(document).ready(function(){
+app.controller("ContactActionsController",function ($scope,$http,$location,$rootScope){
+	
+	
+	$scope.addContact = function()
+	{
+		
+		$http.get("/insert_contact", {params:{"_id": $rootScope.loggedEmail,"name": $scope.name, "phone": $scope.phone}})
+        .then(function (response) 
+        	{
 
-
-
-
-$("#delete_contact_button").click(function(e){
-			e.preventDefault();
-			
-			$.ajax({
-				url: "/delete_contact",
-				type: "GET",
-				dataType: "json",
-				data:{_id: document.getElementById("email").innerHTML,name: $("#name").val(),phone: $("#phone").val()},
-				contentType: "application/json",
-				cache: true,
-				timeout: 7000,
-				complete: function() {
-				  console.log('process complete');
-				},
-				success: function(data) {
-					
-					if(data.delete === "Yes")
-					{
-						console.log("Yes");
-						alert("Account deleted successfully.");
-						window.location.href = "/Contacts.html?_id="+new URLSearchParams(window.location.search).get("_id");
-						return false;
-						
-					}
-					else if(data.delete === "No")
-					{
-						console.log("No");
-						alert("Could not remove contact. Please Try Again.");
-					}
-					else if(data.delete === "Null")
-					{
-						console.log("Contact not found");
-						alert("Contact Not found.");
-						
-					}
-					else if(data.delete === "DB error")
-					{
-						alert("Database Error. Please Try Again.");
-					}
-
-				},
-				error: function() {
-				  console.log('process error');
-				},
+        		if(response.data.insert === "Yes")
+			{
+				console.log("Yes");
+				alert("Account inserted successfully.");
+				//$("#name").val("");
+	   			//$("#phone").val("");
+				return false;
 				
-			});
-	});
+			}
+			else if(response.data.insert === "No")
+			{
+				console.log("No");
+				alert("Could not insert contact. Please Try Again.");
+			}
+			else if(response.data.insert === "DB error")
+			{
+				alert("Database Error. Please Try Again.");
+			}
 
-$("#update_contact_button").click(function(e){
-			e.preventDefault();
-			
-			$.ajax({
-				url: "/update_contact",
-				type: "GET",
-				dataType: "json",
-				data:{_id: document.getElementById("email").innerHTML,oldName: $("#oldName").val(),oldPhone: $("#oldPhone").val(),newName: $("#newName").val(),newPhone: $("#newPhone").val()},
-				contentType: "application/json",
-				cache: true,
-				timeout: 7000,
-				complete: function() {
-				  console.log('process complete');
-				},
-				success: function(data) {
-					
-					if(data.update === "Yes")
-					{
-						console.log("Yes");
-						alert("Account updated successfully.");
-						window.location.href = "/Contacts.html?_id="+new URLSearchParams(window.location.search).get("_id");
-						return false;
-						
-					}
-					else if(data.update === "No")
-					{
-						console.log("No");
-						alert("Could not update contact. Please Try Again.");
-					}
-					else if(data.update === "Null")
-					{
-						console.log("Contact not found");
-						alert("Contact Not found.");
-						
-					}
-					else if(data.update === "DB error")
-					{
-						alert("Database Error. Please Try Again.");
-					}
-
-				},
-				error: function() {
-				  console.log('process error');
-				},
+        });
+		
+		
+		
+	};
+	
+	$scope.deleteContact = function()
+	{
+		
+		$http.get("/delete_contact", {params:{"_id": $rootScope.loggedEmail,"name": $scope.name, "phone": $scope.phone}})
+        .then(function (response) 
+        	{
+        		if(response.data.delete === "Yes")
+			{
+				console.log("Yes");
+				alert("Account deleted successfully.");
+				return false;
 				
-			});
-	});
-
-$("#insert_contact_button").click(function(e){
-			e.preventDefault();
-			
-			$.ajax({
-				url: "/insert_contact",
-				type: "GET",
-				dataType: "json",
-				data:{_id: document.getElementById("email").innerHTML,name: $("#name").val(),phone: $("#phone").val()},				
-				contentType: "application/json",
-				cache: true,
-				timeout: 7000,
-				complete: function() {
-				  console.log('process complete');
-				},
-				success: function(data) {
-					
-					if(data.insert === "Yes")
-					{
-						console.log("Yes");
-						alert("Account inserted successfully.");
-						window.location.href = "/Contacts.html?_id="+new URLSearchParams(window.location.search).get("_id");
-						return false;
-						
-					}
-					else if(data.insert === "No")
-					{
-						console.log("No");
-						alert("Could not insert contact. Please Try Again.");
-					}
-					else if(data.insert === "DB error")
-					{
-						alert("Database Error. Please Try Again.");
-					}
-
-				},
-				error: function() {
-				  console.log('process error');
-				},
+			}
+			else if(response.data.delete === "No")
+			{
+				console.log("No");
+				alert("Could not remove contact. Please Try Again.");
+			}
+			else if(response.data.delete === "Null")
+			{
+				console.log("Contact not found");
+				alert("Contact Not found.");
 				
-			});
-	});
+			}
+			else if(response.data.delete === "DB error")
+			{
+				alert("Database Error. Please Try Again.");
+			}
 
+        });
+	};
+		
+	$scope.updateContact = function()
+	{
+		
+		$http.get("/update_contact", {params:{"_id": $rootScope.loggedEmail,"oldName": $scope.oldName, "oldPhone": $scope.oldPhone, "newName": $scope.newName ,"newPhone": $scope.newPhone}})
+        .then(function (response) 
+        	{
+        		if(response.data.update === "Yes")
+			{
+				console.log("Yes");
+				alert("Account updated successfully.");
+				return false;
+				
+			}
+			else if(response.data.update === "No")
+			{
+				console.log("No");
+				alert("Could not update contact. Please Try Again.");
+			}
+			else if(response.data.update === "Null")
+			{
+				console.log("Contact not found");
+				alert("Contact Not found.");
+				
+			}
+			else if(response.data.update === "DB error")
+			{
+				alert("Database Error. Please Try Again.");
+			}
 
-
-
+        });
+		
+	
+	};
+	
+	
+	
+	
+	
 
 });
-
-
-

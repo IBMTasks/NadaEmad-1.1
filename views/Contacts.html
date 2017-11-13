@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My Contacts List</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<script src="https://angular-data-grid.github.io/dist/dataGrid.js"></script>
-	<script src="https://angular-data-grid.github.io/dist/pagination.js"></script>
-	<script src="javascripts/ListContacts.js"> </script>
-</head>
-<body  ng-app="myApp" ng-controller="tableController as demo" >
-	<header id="header">
-		<h3 id="email"></h3>
-		<button type="button" onclick="window.location.href='/';">Log out</button>
+<div ng-controller="tableController as demo" >
+	<header id="header" class="page-header">
+		<h3 id="email" ng-model="headerEmail"> {{ $parent.loggedEmail }} </h3>
+		<button type="button" ng-click="signOut()">Log out</button>
 	</header>
     <div grid-data grid-options="gridOptions" grid-actions="gridActions">
         <table class="table table-striped">
@@ -39,27 +27,25 @@
          
        </table>
        <div class="form-group">
-                        <grid-pagination max-size="5"
-                                         boundary-links="true"
-                                         class="pagination-sm"
-                                         total-items="paginationOptions.totalItems"
-                                         ng-model="paginationOptions.currentPage"
-                                         ng-change="reloadGrid()"
-                                         items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
-                    </div>
-                    <div class="form-group items-per-page">
-                        <label for="itemsOnPageSelect2">Items per page:</label>
-                        <select id="itemsOnPageSelect2" class="form-control input-sm"
-                                ng-init="paginationOptions.itemsPerPage = '5'"
-                                ng-model="paginationOptions.itemsPerPage" ng-change="reloadGrid()">
-                            <option>5</option>
-                            <option>10</option>
-                            <option>15</option>
-                            <option>20</option>
-                        </select>
-                    </div>
+           <grid-pagination max-size="5"
+                            boundary-links="true"
+                            class="pagination-sm"
+                            total-items="paginationOptions.totalItems"
+                            ng-model="paginationOptions.currentPage"
+                        
+                            items-per-page="paginationOptions.itemsPerPage"></grid-pagination>
+       </div>
+       <div class="form-group items-per-page">
+           <label for="itemsOnPageSelect2">Items per page:</label>
+           <select id="itemsOnPageSelect2" class="form-control input-sm"
+                   ng-init="paginationOptions.itemsPerPage = '5'"
+                   ng-model="paginationOptions.itemsPerPage">
+               <option>5</option>
+               <option>10</option>
+               <option>15</option>
+               <option>20</option>
+           </select>
+       </div>
     </div>
-    
-</body>
+</div>
 
-</html>

@@ -1,0 +1,56 @@
+<div ng-controller="ContactActionsController" >
+	<header id="header" class="page-header">
+		<h3 id="email" ng-model="headerEmail"> {{ $parent.loggedEmail }}</h3>
+		<button type="button" onclick="window.location.href='/';">Log out</button>
+	</header>
+   <form id="updateForm" name="update" method="GET" class="form-group">
+			<table id="updateTable">
+				<tr>
+					<th colspan="2">
+						<h2>Enter contact you want to update</h2>
+					</th>
+				</tr>
+				<tr>
+					<td>
+						<h3>Old Name:</h3>
+					</td>
+					<td>
+						<input id="oldName" type ="text" name="oldName" required ng-model="oldName"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Old Phone:</h3>
+					</td>
+					<td>
+						<input id="oldPhone" type ="text" name="oldPhone" required ng-model="oldPhone"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>New Name:</h3>
+					</td>
+					<td>
+						<input id="newName" type ="text" name="newName" required ng-model="newName"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3>New Phone:</h3>
+					</td>
+					<td>
+						<input id="newPhone" type ="text" name="newPhone" required ng-model="newPhone"/>
+					</td>
+				</tr>
+				<tfoot>
+					<td colspan="2">
+						<button id="update_contact_button" type="submit" ng-click="updateContact()">Update</button>
+					</td>
+				</tfoot>
+					
+				
+
+			</table> 
+	</form>
+   
+</div>

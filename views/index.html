@@ -1,65 +1,124 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="taskApp">
 
 <head>
 	<title>Login Page</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<link rel="stylesheet" href="stylesheets/style.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="https://angular-data-grid.github.io/dist/dataGrid.js"></script>
+	<script src="https://angular-data-grid.github.io/dist/pagination.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
-	<script src="javascripts/LoginAction.js"> </script>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
 	
 </head>
-<body ng-app="">
+<body ng-init="loggedIn = false; signedUp = false; loggedEmail =''">
 
 
-<div id="parent">
-	<form name="login" method="GET">
-		
-			<table id="table">
-				<tr>
-					<th colspan="2">
-						<h2>Log in</h2>
-					</th>
-				</tr>
-				<tr>
-					<td id="label">
-						<h3>Email:</h3>
-					</td>
-					<td>
-						<input id="email" type ="email" name="email" required ng-model="email"/>
-						<br/>
-						 <span ng-show="login.email.$invalid && login.email.$dirty"> Please enter a valid email address </span>
-					</td>
-				</tr>
-				<tr>
-					<td id="label">
-						<h3>Password:</h3>
-					</td>
-					<td>
-						<input id="password" type ="password" name="password" required ng-model="password"/>
-					</td>
-				</tr>
-				<tfoot>
-					<td colspan="2">
-						<button id="login_user_button" type="submit">Login</button>
-					</td>
-				</tfoot>
-				<tfoot>
-					<td colspan="2">
-						<a href="/Signup.html">Don't have an account, Signup here</a>
-					</td> 
-				</tfoot>
-					
-				
+	<nav>
+	  <div class="topNav">
+	    <ul id="nav_bar">
+	      <li><a id="main" href="#!/" class="active">Main</a></li>
+	      <li><a id="login" href="#!Login" ng-show="!loggedIn;" class="">Login</a></li>
+	      <li><a id="signup" href="#!Signup" ng-show="!loggedIn && !signedUp;" class="">Signup</a></li>
+	      <li><a id="contacts" href="#!Contacts"  ng-show="loggedIn;" class="">List Contacts</a></li>
+	      <li><a id="addContact" href="#!AddContact"  ng-show="loggedIn;" class="">Add Contact</a></li>
+	      <li><a id="deleteContact" href="#!DeleteContact"  ng-show="loggedIn;" class="">Delete Contact</a></li>
+	      <li><a id="updateContact" href="#!UpdateContact"  ng-show="loggedIn;" class="">Update Contact</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+		    $("#main").click(function()
+		    	{
+		    		$("#nav_bar>li>a.active").removeClass("active");
+			    	$("#main").addClass("active");
+		    });
+		    $("#login").click(function()
+		    	{
+		    		$("#nav_bar>li>a.active").removeClass("active");
+			    	$("#login").addClass("active");
+		    });
+		    $("#signup").click(function()
+		    	{
+		    		$("#nav_bar>li>a.active").removeClass("active");
+			    	$("#signup").addClass("active");
+		    });
+		    $("#contacts").click(function()
+		    	{
+		    		$("#nav_bar>li>a.active").removeClass("active");
+			    	$("#contacts").addClass("active");
+		    });
+		    $("#addContact").click(function()
+		    	{
+		    		$("#nav_bar>li>a.active").removeClass("active");
+			    	$("#addContact").addClass("active");
+		    });
+		    $("#deleteContact").click(function()
+		    	{
+		    		$("#nav_bar>li>a.active").removeClass("active");
+			    	$("#deleteContact").addClass("active");
+		    });
+		    $("#updateContact").click(function()
+		    	{
+		    		$("#nav_bar>li>a.active").removeClass("active");
+			    	$("#updateContact").addClass("active");
+		    });
+		});
+	</script>
 
-			</table>
-	           
-            
 
-      
-        
-	</form>
+
+<div id="parent" ng-view>
+	
+	<script>
+		var app = angular.module("taskApp", ["ngRoute","dataGrid","pagination"]);
+		app.config(function($routeProvider) {
+		    $routeProvider
+		    .when("/", {
+		        templateUrl : "main.html"
+		    })
+		    .when("/Login", {
+		        templateUrl : "Login.view.html",
+		        controller : "loginController"
+		    })
+		    .when("/Signup", {
+		        templateUrl : "Signup.html",
+		        controller : "signupController"
+		    })
+		    .when("/Contacts", {
+		        templateUrl : "Contacts.html",
+		        controller : "tableController"
+		    })
+		    .when("/AddContact", {
+		        templateUrl : "AddContact.html",
+		        controller : "ContactActionsController"
+		    }).when("/DeleteContact", {
+		        templateUrl : "DeleteContact.html",
+		        controller : "ContactActionsController"
+		    }).when("/UpdateContact", {
+		        templateUrl : "UpdateContact.html",
+		        controller : "ContactActionsController"
+		    });
+		});
+	</script>
+	<script src="javascripts/LoginAction.js"> </script>
+	<script src="javascripts/ListContacts.js"> </script>
+	<script src="javascripts/signupAction.js"> </script>
+	<script src="javascripts/ContactsActions.js"> </script>
+	<script src ="javascripts/validators.js" type="text/javascript"></script>
+
+
+
+
+
+
+
 </div>
 	
 </body>
